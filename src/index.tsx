@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './index.scss';
+import App from './app/App';
 import * as serviceWorker from './serviceWorker';
+
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 ReactDOM.render(
   <React.StrictMode>

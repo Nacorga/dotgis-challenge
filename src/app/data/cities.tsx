@@ -1,0 +1,1 @@
+export const cities: string[] = ['Madrid', 'Barcelona'];

@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.header {
+  padding: 15px 0;
+
+  .app-title {
+    font-size: 32px;
+  }
+}
+
+.cities-nav {
+  .cities-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .city {
+      padding: 15px;
+
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+}
