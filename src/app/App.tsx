@@ -1,20 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import { cities } from './data/cities';
 import axios from 'axios';
-import ChartsComponent from './components/Chart';
+import Charts from './components/Charts';
 
 function App() {
 
-  const [city, setCity] = useState(cities[0]);
   const [data, setData] = useState();
 
-  useEffect(() => {
+  const apiCall = (city: string) => {
+
+    setData(undefined);
+
     axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=0614d13377e407e8c0724c47d862443b`)
       .then((res: any) => setData(res.data))
       .catch(error => console.error(error)
     );
-  });
+  
+  }
 
   return (
     <div className="App">
@@ -31,7 +34,7 @@ function App() {
               cities.map((city, i) => {
                 return (
                   <li className="city" key={`city-${i}`}>
-                    <span onClick={() => setCity(city)}>{city}</span>
+                    <span onClick={() => apiCall(city)}>{city}</span>
                   </li>
                 )
               })
@@ -39,7 +42,7 @@ function App() {
           </ul>
         </nav>
 
-        <ChartsComponent city={city} data={data} />
+        <Charts data={data} />
 
       </div>
 
